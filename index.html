@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animated Mail</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+    body {
+      background: #323641;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .letter-image {
+      position: relative;
+      width: 800px;
+      height: 800px;
+      cursor: pointer;
+    }
+
+    .animated-mail {
+      position: absolute;
+      height: 600px;
+      width: 800px;
+      transition: 0.4s;
+    }
+
+    .animated-mail .body {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 400px 800px;
+      border-color: transparent transparent #e95f55 transparent;
+      z-index: 2;
+    }
+
+    .animated-mail .top-fold {
+      position: absolute;
+      top: 200px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 200px 400px 0 400px;
+      transform-origin: 50% 0%;
+      transition: transform 0.4s 0.4s, z-index 0.2s 0.4s;
+      border-color: #dd4b43 transparent transparent transparent;
+      z-index: 2;
+    }
+
+    .animated-mail .back-fold {
+      position: absolute;
+      bottom: 0;
+      width: 800px;
+      height: 400px;
+      background: #cf4a43;
+      z-index: 0;
+    }
+
+    .animated-mail .left-fold {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 200px 0 200px 400px;
+      border-color: transparent transparent transparent #e15349;
+      z-index: 2;
+    }
+
+    .animated-mail .letter {
+      left: 80px;
+      bottom: 0px;
+      position: absolute;
+      width: 640px;
+      height: 320px;
+      background: white;
+      z-index: 1;
+      overflow: hidden;
+      transition: 0.4s 0.2s;
+    }
+
+    .animated-mail .letter .letter-border {
+      height: 40px;
+      width: 100%;
+      background: repeating-linear-gradient(-45deg, #cb5a5e, #cb5a5e 32px, transparent 32px, transparent 72px);
+    }
+
+    .animated-mail .letter .letter-title {
+      margin-top: 40px;
+      margin-left: 20px;
+      background: #cb5a5e;
+      padding: 10px;
+      width: 35%;
+    }
+
+    .animated-mail .letter .letter-title .name {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      white-space: nowrap;
+    }
+
+    .animated-mail .letter .letter-title .position {
+      font-size: 13px;
+      color: white;
+      margin-top: 15px;
+    }
+
+    .animated-mail .letter-description {
+      margin-top: 30px;
+      margin-left: 20px;
+      font-size: 12px;
+      color: black;
+      width: 37%;
+    }
+
+    .animated-mail .letter-stamp {
+      margin-top: 100px;
+      margin-left: 480px;
+      border-radius: 100%;
+      height: 120px;
+      width: 120px;
+      background: #cb5a5e;
+      opacity: 0.3;
+    }
+
+    .shadow {
+      position: absolute;
+      top: 800px;
+      left: 50%;
+      width: 1200px;
+      height: 180px;
+      transition: 0.4s;
+      transform: translateX(-50%);
+      border-radius: 100%;
+      background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+    }
+
+    .letter-image:hover .animated-mail {
+      transform: translateY(200px);
+    }
+
+    .letter-image:hover .animated-mail .top-fold {
+      transition: transform 0.4s, z-index 0.2s;
+      transform: rotateX(180deg);
+      z-index: 0;
+    }
+
+    .letter-image:hover .animated-mail .letter {
+      height: 680px;
+    }
+
+    .about-me {
+      position: absolute;
+      top: 3.8rem;
+      right: 20px;
+      font-size: 14px;
+      color: rgb(0, 0, 0);
+      transform: translateX(0.0001%);
+      width: 200px;
+    }
+
+    .download-resume {
+      position: absolute;
+      top: 300px;
+      right: 60px;
+      padding: 10px 20px;
+      background-color: #cb5a5e;
+      color: white;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .footer{
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+    }
+
+    .footer .contact {
+      margin-top: 10px;
+    }
+
+    .footer .contact a {
+      margin: 0 5px;
+      color: white;
+      font-size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="letter-image">
+    <div class="animated-mail">
+      <div class="back-fold"></div>
+      <div class="letter">
+        <div class="letter-border"></div>
+        <div class="letter-title">
+          <span class="name">Arjab Chakrabarti</span>
+          <br>
+          <span class="position">Web Dev & AI Engineer</span>
+        </div>
+        <div class="letter-description">
+          <h1 style="font-size: 23px;">Skills</h1>
+          <ul>
+            <li>HTML / CSS</li>
+            <li>Javascript / Node.js / React.js</li>
+            <li>C / C++</li>
+            <li>Python / Pytorch</li>
+            <li>Machine Learning</li>
+            <li>Java</li>
+          </ul>
+        </div>
+        <div class="letter-context"></div>
+        <div class="letter-stamp">
+          <div class="letter-stamp-inner"></div>
+        </div>
+        <div class="about-me">
+          <p><h1 style="font-size: 23px;">About Me:</h1></p>
+          <p>I am a sophomore student with interests in web development and AI engineering. </p>
+        </div>
+        <p style="position: absolute; top: 260px; right: 65px; font-size: 14px; color: rgb(7, 7, 7);">For more information :</p>
+        <button class="download-resume">Download Resume</button>
+          <a href="Resume.pdf" download>Download Resume</a>
+      </div>
+      <div class="top-fold"></div>
+      <div class="body"></div>
+      <div class="left-fold"></div>
+    </div>
+    <div class="shadow"></div>
+  </div>
+  <div class="footer">
+    <span>© Ajstein03</span>
+    <div class="contact">
+      <a href="mailto:arjab@example.com"><i class="bi bi-envelope-fill"></i></a>
+      <a href="https://linkedin.com/arjab"><i class="bi bi-linkedin"></i></a>
+      <a href="https://github.com/arjabchakrabarti"><i class="bi bi-github"></i></a>
+      <a href="https://instagram.com/itsarjab?igshid=YmMyMTA2M2Y="><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</body>
+</html>
